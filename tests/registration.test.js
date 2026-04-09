@@ -39,7 +39,6 @@ it('TC-01: Should successfully register a new user', async function() {
     expect(title).to.equal(SUCCESS_TITLE);
 });
 
-
 // TC-02: Empty form (Negative)
 it('TC-02: Should not register with empty form', async function() {
     await registerPage.openPage();
@@ -48,7 +47,6 @@ it('TC-02: Should not register with empty form', async function() {
     let title = await driver.getTitle();
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
-
 
 // TC-03: Invalid email
 it('TC-03: Should not register with invalid email', async function() {
@@ -66,7 +64,6 @@ it('TC-03: Should not register with invalid email', async function() {
     let title = await driver.getTitle();
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
-
 
 // TC-04: Password mismatch
 it('TC-04: Should not register when passwords do not match', async function() {
@@ -102,7 +99,6 @@ it('TC-05: Should not register without agreeing to terms', async function() {
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
 
-
 // TC-06: Boundary (min name)
 it('TC-06: Should handle minimum length first name', async function() {
     await registerPage.openPage();
@@ -119,7 +115,6 @@ it('TC-06: Should handle minimum length first name', async function() {
     let title = await driver.getTitle();
     expect(title).to.exist;
 });
-
 
 // TC-07: Boundary (max name)
 it('TC-07: Should handle maximum length first name', async function() {
@@ -140,7 +135,6 @@ it('TC-07: Should handle maximum length first name', async function() {
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
 
-
 // TC-08: Duplicate email
 it('TC-08: Should not allow duplicate email', async function() {
     await registerPage.openPage();
@@ -160,7 +154,6 @@ it('TC-08: Should not allow duplicate email', async function() {
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
 
-
 // TC-09: Invalid phone
 it('TC-09: Should not register with invalid phone', async function() {
     await registerPage.openPage();
@@ -177,7 +170,6 @@ it('TC-09: Should not register with invalid phone', async function() {
     let title = await driver.getTitle();
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
-
 
 // TC-10: SQL Injection
 it('TC-10: Should handle SQL injection safely', async function() {
@@ -196,7 +188,6 @@ it('TC-10: Should handle SQL injection safely', async function() {
     expect(title).to.not.equal(SUCCESS_TITLE);
 });
 
-
 // TC-11: XSS
 it('TC-11: Should handle XSS safely', async function() {
     await registerPage.openPage();
@@ -214,4 +205,4 @@ it('TC-11: Should handle XSS safely', async function() {
     expect(title).to.not.equal(SUCCESS_TITLE);
 }); 
 
-    });
+});
