@@ -5,7 +5,7 @@ class RegisterPage {
     constructor(driver) {
         this.driver = driver;
 
-        // ===== INPUT LOCATORS =====
+        
         this.firstNameInput = By.id('input-firstname');
         this.lastNameInput = By.id('input-lastname');
         this.emailInput = By.id('input-email');
@@ -15,7 +15,7 @@ class RegisterPage {
         this.agreeCheckbox = By.name('agree');
         this.continueButton = By.css('input[value="Continue"]');
 
-        // ===== ERROR LOCATORS =====
+        
         this.warningMessage = By.css('.alert-danger');
         this.firstNameError = By.css('#input-firstname + .text-danger');
         this.lastNameError = By.css('#input-lastname + .text-danger');
@@ -24,12 +24,12 @@ class RegisterPage {
         this.passwordError = By.css('#input-password + .text-danger');
     }
 
-    // ===== NAVIGATION =====
+    // NAVIGATION
     async openPage() {
         await this.driver.get(`${config.baseURL}/index.php?route=account/register`);
     }
 
-    // ===== INPUT ACTIONS =====
+    
     async enterFirstName(firstName) {
         let el = await this.driver.wait(until.elementLocated(this.firstNameInput), 10000);
         await el.clear();
@@ -76,7 +76,7 @@ class RegisterPage {
         await el.click();
     }
 
-    // ===== GENERIC SAFE GETTER =====
+    
     async getTextSafe(locator) {
         try {
             let el = await this.driver.wait(until.elementLocated(locator), 3000);
@@ -86,7 +86,7 @@ class RegisterPage {
         }
     }
 
-    // ===== ERROR METHODS =====
+
     async getWarningMessage() {
         return await this.getTextSafe(this.warningMessage);
     }
